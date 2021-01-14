@@ -2,11 +2,17 @@
 
 ## About
 
-This is a project of a research rocket localization system created for the [PUT Rocket Lab](https://www.facebook.com/putrocketlab) science club.
-
-One of the biggest problems for engineers who build rockets is their recovery. Most teams decide on very expensive commercial solutions, which are not free of limitations. Our proposed system is a cheap alternative to the products available on the market, and thanks to the use of the chirp spread spectrum modulation technique, it offers more possibilities.
-
-The whole system consists of a tracker, receiver, and a mobile application that acts as a graphical user interface. The tracker and the receiver are equipped with a LoRa radio module, which is considered to be the first low-cost implementation of CSS modulation. To operate the radio module, our team decided to implement a library, which allowed us to use all of LoRa features. Microcontroller STM32F411 is used as a central processing unit, while the receiver is equipped with a microcontroller with integrated Bluetooth and Wi-Fi modules - ESP32. In order to display the location of the object we implemented a mobile application. The application offers real-time capture of location data and displays them on the map, which significantly speeds up and facilitates the process of finding the rocket.
+[PUT Rocket Lab](https://www.facebook.com/putrocketlab) jest Kołem Naukowym z Politechniki Poznańskiej zajmującym się projektowaniem, budowaniem oraz testowaniem technologii
+rakietowych. Flagowym projektem zespołu jest budowa rakiety sondażowej
+Hexa 2 napędzanej hybrydowym silnikiem rakietowym. Jednym z większych problemów, z jakimi przychodzi zmagać się inżynierom budującym
+rakiety, jest ich odzysk. Podczas testów rakieta zostaje wystrzelona w
+przestrzeń. Wysokość oraz uzyskiwana prędkość obiektu jest oszacowana z
+dużą dokładnością. Komplikacje pojawiają się przy estymowaniu miejsca
+spadku rakiety, gdyż jest ono zależne w głównej mierze od powodzenia się
+wszystkich procedur lądowania oraz w dużym stopniu od czynników meteorologicznych. Istotą odzysku jest zlokalizowanie rakiety w celu znalezienia
+części, które są zdatne do ponownego użycia oraz tych, które już nie zadziałają, ale by zanieczyszczały środowisko. Większość zespołów decyduje
+się na bardzo drogie komercyjne rozwiązania, które mimo wszystko nie są
+wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt systemu lokalizacji rakiet stratosferycznych.
 
 - [Rocket Localization System](#rocket-localization-system)
   - [About](#about)
@@ -30,13 +36,13 @@ The whole system consists of a tracker, receiver, and a mobile application that 
 
 ## GPS Tracker
 
-Pierwszą częścia systemu lokalizacji jest GPS Tracker. Urządzenie to, przy pomocy fal radiowych rozsyła informację na temat swojego aktualnego połorzenia w przestrzeni.
+Pierwszą częścia systemu lokalizacji jest GPS Tracker. Urządzenie to umieszczone wewnątrz rakiety, przy pomocy fal radiowych rozsyła informację na temat swojego aktualnego połorzenia w przestrzeni.
+
+### Hardware
 
 Do komunikacji radiowej wykrozystana została warstwa fizyczna systemu dalekiej komunikacji - LoRa, protokuł łączności został zaimplementowany według potrzeb naszego zespołu. Długość i szerokość geograficzna pozyskiwane są za pomooca systemu nawigacji satelitarnej. Wysokość obliczana jest na podstawie odczytu ciśnienia atmosferycznego mierzonego przez barometr. Z uwagi na stosunkowo niską przepustowość łącza radiowego wszystkie dane zapisywane sa w trwałej pamięci flash, Na ich podstawie użytkownik w post procesingu może dokładnie wyznaczyć tor lotu rakiety.
 
-Urządzenie jest także wyposażone w akumulator litowo-polimerowy i moduł umożliwiający jego ładowanie przez złącze mini-USB. Cztery diody led pełnią rolę prostego interfejsu, który informuje uzytkownika o bierzących ustawieniach. Ostatnim elementem urządzenia jest 4 pinowe złącze które, przy pomocy dedykowanej aplikacji umożliwia konfigurowanie ustwień trackera, takich jak kanał radiowy, moc transmitowanego sygnału i data rate.
-
-### Hardware
+Urządzenie jest także wyposażone w akumulator litowo-polimerowy i moduł umożliwiający jego ładowanie przez złącze mini-USB. Cztery diody led pełnią rolę prostego interfejsu, który informuje użytkownika o bierzących ustawieniach. Ustawienia te mogą być konfigurowane poprzez deydkowaną aplikację, która pozwala na ustawienie takich parametrów jak kanał radiowy, moc transmitowanego sygnału oraz data rate. Komunikacja z aplikacją odbywa się poprzez uniwersalny port asynchroniczny - UART. Urządzenie posiada 4 pinowe złącze któe przy pomocy konwertera UART-USB umożliwia podłączenie do komputera. Ostatnim ważnym elementem urządzenia jest włącznik zasilania o logice bistabilnej. Urządzenie zostaje uruchomione poprzez wyciągnięcie specjalnej zworki, tzw "Remove before fly".
 
 ![datasheet](pictures/tracker_description.png)
 _Figure 1. Render of GPS Tracker Board_
