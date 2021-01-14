@@ -24,7 +24,7 @@ wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt sys
     - [Software](#software)
       - [Block Diagram](#block-diagram)
   - [Receiver](#receiver)
-    - [Hardware](#hardware)
+    - [Hardware](#hardware-1)
       - [Sensors](#sensors)
       - [Schema](#schema)
       - [board](#board)
@@ -46,7 +46,8 @@ Do komunikacji radiowej ziemia-powietrze posłużyła warstwa fizyczna systemu d
 Urządzenie jest także wyposażone w akumulator litowo-polimerowy i moduł umożliwiający jego ładowanie przez złącze mini-USB. Cztery diody led pełnią rolę prostego interfejsu, który informuje użytkownika o bierzących ustawieniach. Ustawienia te mogą być konfigurowane poprzez deydkowaną aplikację, która pozwala na ustawienie takich parametrów jak kanał radiowy, moc transmitowanego sygnału oraz data rate. Komunikacja z aplikacją odbywa się poprzez uniwersalny port asynchroniczny - UART. Urządzenie posiada 4 pinowe złącze któe przy pomocy konwertera UART-USB umożliwia podłączenie do komputera. Ostatnim ważnym elementem urządzenia jest włącznik zasilania o logice bistabilnej. Urządzenie zostaje uruchomione poprzez wyciągnięcie specjalnej zworki, tzw "Remove before fly".
 
 ![datasheet](pictures/tracker_description.png)
-_Figure 1. Render of GPS Tracker Board_
+
+<div align="center"><font size="2">_Figure 1. Render of GPS Tracker Board_</font></div>
 
 #### Sensors and components
 
@@ -74,7 +75,8 @@ Poniżej przedstawiony został dokładny schemat GPS tracker'a.
 - [link do pliku z schematem](Hardware/gps_tracker2.0/gps_tracker2.0.sch)
 
 ![schema](pictures/GPS_Tracker_schema.png)
-_Figure 2. Schema of GPS Tracker_
+
+<div align="center"><font size="2">_Figure 2. Schema of GPS Tracker_</font></div>
 
 </details>
 
@@ -87,7 +89,8 @@ Na poniższym obrazku przedstawione zostały obie strony dwustronnej płytki PCB
 - [link do piku z płytką PCB](Hardware/gps_tracker2.0/gps_tracker2.0.sch)
 
 ![board](pictures/gps_tracker_board.png)
-_Figure 3. GPS Tracker board_
+
+<div align="center"><font size="2">_Figure 3. GPS Tracker board_</font></div>
 
 </details>
 
@@ -112,6 +115,13 @@ Na pozniższym obrazku przedstawiony został schemat blokowy procesów wykonywan
 - [link do pliku nagłówkowego GPS Tracker'a]()
 
 ![block_diagram]()
-_Figure 4. GPS Tracker code diagram_
+
+<div align="center"><font size="2"> _Figure 4. GPS Tracker code diagram_</font></div>
 
 </details>
+
+## Receiver
+
+Drugą częścią systemu jest Receiver, który wraz z smartfonem tworzy stację odbiorczą dla sygnału emitowanego z rakiety. Urządzenie wyposażone w antenę kierunkową pozwala na łączność z rakietami odbywającymi loty stratosferyczne. Odebrane dane wizualizowane są w czasie rzeczywistym na mapie satelitarnej na ekranie połączonego smartfona.
+
+### Hardware
