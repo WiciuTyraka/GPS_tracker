@@ -51,6 +51,8 @@ _Figure 1. Render of GPS Tracker Board_
 
 <details>
 
+Poniższa tabela przedstawia wszytkie moduły cyforwe wykorzystane w projekcie GPS tracker'a wraz z odnośnikiem do poszczególnych dokumentacji.
+
 | Sensor          |          Device |                                           Datasheet |
 | --------------- | --------------: | --------------------------------------------------: |
 | uC              |      STM32 F411 |              [datasheet](datasheet/stm32f411ce.pdf) |
@@ -66,9 +68,22 @@ _Figure 1. Render of GPS Tracker Board_
 
 <details>
 
+Poniżej przedstawiony został dokładny schemat GPS tracker'a.
+Plik z schematem dostępny jest pod tym [linkiem](Hardware/gps_tracker2.0/gps_tracker2.0.sch)
+
 ![datasheet](pictures/GPS_Tracker_schema.png)
 _Figure 2. Schema of GPS Tracker_
 
 </details>
 
 #### Board
+
+<details>
+
+Na poniższym obrazku przedstawione zostały obie strony dwustronnej płytki PCB, która łączy wszytskie elementy. Lewa strona (niebieskie ścieżki) przedstawia dolną warstwę natomiast prawa (czerwone ścieżki) górną warstwę.
+Plik z płytką dostępny jest pod tym [linkiem](Hardware/gps_tracker2.0/gps_tracker2.0.sch)
+
+![datasheet](pictures/gps_tracker_board.png)
+_Figure 3. GPS Tracker board_
+
+</details>
