@@ -39,6 +39,7 @@ Urządzenie jest także wyposażone w akumulator litowo-polimerowy i moduł umo�
 ### Hardware
 
 ![datasheet](pictures/tracker_description.png)
+_Figure 1. Render of GPS Tracker Board_
 
 #### Sensors and components
 
@@ -53,6 +54,10 @@ Urządzenie jest także wyposażone w akumulator litowo-polimerowy i moduł umo�
 
 #### Schema
 
-![datasheet](pictures/GPS_Tracker_schema.png)
+<details>
 
+![datasheet](pictures/GPS_Tracker_schema.png)
+_Figure 2. Schema of GPS Tracker_
+
+</details>
 #### Board
