@@ -43,6 +43,8 @@ _Figure 1. Render of GPS Tracker Board_
 
 #### Sensors and components
 
+<details>
+
 | Sensor          |          Device |                                           Datasheet |
 | --------------- | --------------: | --------------------------------------------------: |
 | uC              |      STM32 F411 |              [datasheet](datasheet/stm32f411ce.pdf) |
@@ -52,6 +54,8 @@ _Figure 1. Render of GPS Tracker Board_
 | Flash memory    |         W25Q128 |                [datasheet](datasheet/w25q128fv.pdf) |
 | Battery charger | MCP73833-AMI/UN |             [datasheet](datasheet/22005a-76648.pdf) |
 
+</details>
+
 #### Schema
 
 <details>
@@ -60,4 +64,5 @@ _Figure 1. Render of GPS Tracker Board_
 _Figure 2. Schema of GPS Tracker_
 
 </details>
+
 #### Board
