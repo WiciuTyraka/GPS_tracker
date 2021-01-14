@@ -32,9 +32,9 @@ The whole system consists of a tracker, receiver, and a mobile application that 
 
 Pierwszą częścia systemu lokalizacji jest GPS Tracker. Urządzenie to, przy pomocy fal radiowych rozsyła informację na temat swojego aktualnego połorzenia w przestrzeni.
 
-Do komunikacji radiowej wykrozystana została warstwa fizyczna systemu LoRa, protokuł łączności został zaimplementowany według potrzeb naszego zespołu. Długość i szerokość geograficzna pozyskiwane są za pomooca systemu zanwigacji satelitarnej. Wysokość obliczana jest na podstawie odczytu ciśnienia atmosferycznego mierzonego przez barometr. Z uwagi na niską przepustowość łącza radiowego wszystkie dane zapisywane sa w trwałej pamięci flash, Na ich podstawie uzytkownik w post procesingu może dokładnie wyznaczyć tor lotu rakiety.
+Do komunikacji radiowej wykrozystana została warstwa fizyczna systemu dalekiej komunikacji - LoRa, protokuł łączności został zaimplementowany według potrzeb naszego zespołu. Długość i szerokość geograficzna pozyskiwane są za pomooca systemu nawigacji satelitarnej. Wysokość obliczana jest na podstawie odczytu ciśnienia atmosferycznego mierzonego przez barometr. Z uwagi na stosunkowo niską przepustowość łącza radiowego wszystkie dane zapisywane sa w trwałej pamięci flash, Na ich podstawie użytkownik w post procesingu może dokładnie wyznaczyć tor lotu rakiety.
 
-Urządzenie jest także wyposażone w akumulator litowo-polimerowy i moduł umożliwiający jego ładowanie przez złącze mini-USB. Cztery diody led pełnią rolę prostego interfejsu, który informuje uzytkownika o bierzących ustawieniach. Ostatnim elementem urządzenia jest 4 pinowe złącze które umożliwia konfigurowanie ustwień trackera, takich jak kanał radiowy, moc transmitowanego sygnału i data rate.
+Urządzenie jest także wyposażone w akumulator litowo-polimerowy i moduł umożliwiający jego ładowanie przez złącze mini-USB. Cztery diody led pełnią rolę prostego interfejsu, który informuje uzytkownika o bierzących ustawieniach. Ostatnim elementem urządzenia jest 4 pinowe złącze które, przy pomocy dedykowanej aplikacji umożliwia konfigurowanie ustwień trackera, takich jak kanał radiowy, moc transmitowanego sygnału i data rate.
 
 ### Hardware
 
@@ -52,5 +52,7 @@ Urządzenie jest także wyposażone w akumulator litowo-polimerowy i moduł umo�
 | Battery charger | MCP73833-AMI/UN |             [datasheet](datasheet/22005a-76648.pdf) |
 
 #### Schema
+
+![datasheet](pictures/GPS_Tracker_schema.png)
 
 #### Board
