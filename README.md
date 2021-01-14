@@ -22,6 +22,7 @@ wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt sys
       - [Schema](#schema)
       - [Board](#board)
     - [Software](#software)
+      - [Block Diagram](#block-diagram)
   - [Receiver](#receiver)
     - [Hardware](#hardware)
       - [Sensors](#sensors)
@@ -40,7 +41,7 @@ Pierwszą częścia systemu lokalizacji jest GPS Tracker. Urządzenie to umieszc
 
 ### Hardware
 
-Do komunikacji radiowej wykrozystana została warstwa fizyczna systemu dalekiej komunikacji - LoRa, protokuł łączności został zaimplementowany według potrzeb naszego zespołu. Długość i szerokość geograficzna pozyskiwane są za pomooca systemu nawigacji satelitarnej. Wysokość obliczana jest na podstawie odczytu ciśnienia atmosferycznego mierzonego przez barometr. Z uwagi na stosunkowo niską przepustowość łącza radiowego wszystkie dane zapisywane sa w trwałej pamięci flash, Na ich podstawie użytkownik w post procesingu może dokładnie wyznaczyć tor lotu rakiety.
+Do komunikacji radiowej ziemia-powietrze posłużyła warstwa fizyczna systemu dalekiego zasięgu - LoRa, protokuł łączności został zaimplementowany według potrzeb naszego zespołu. LoRa używa techniki modulacji z widmem rozproszonym CSS (ang. chirp spread spectrum), która jest uznawana za pierwszą niskokosztową implementację tego rodzaju modulacji do zastosowań komercyjnych. Długość i szerokość geograficzna pozyskiwane są za pomooca systemu nawigacji satelitarnej. Wysokość obliczana jest na podstawie odczytu ciśnienia atmosferycznego mierzonego przez barometr. Z uwagi na stosunkowo niską przepustowość łącza radiowego wszystkie nadmiarowe dane zapisywane sa w trwałej pamięci flash.
 
 Urządzenie jest także wyposażone w akumulator litowo-polimerowy i moduł umożliwiający jego ładowanie przez złącze mini-USB. Cztery diody led pełnią rolę prostego interfejsu, który informuje użytkownika o bierzących ustawieniach. Ustawienia te mogą być konfigurowane poprzez deydkowaną aplikację, która pozwala na ustawienie takich parametrów jak kanał radiowy, moc transmitowanego sygnału oraz data rate. Komunikacja z aplikacją odbywa się poprzez uniwersalny port asynchroniczny - UART. Urządzenie posiada 4 pinowe złącze któe przy pomocy konwertera UART-USB umożliwia podłączenie do komputera. Ostatnim ważnym elementem urządzenia jest włącznik zasilania o logice bistabilnej. Urządzenie zostaje uruchomione poprzez wyciągnięcie specjalnej zworki, tzw "Remove before fly".
 
@@ -69,9 +70,10 @@ Poniższa tabela przedstawia wszytkie moduły cyforwe wykorzystane w projekcie G
 <details>
 
 Poniżej przedstawiony został dokładny schemat GPS tracker'a.
-Plik z schematem dostępny jest pod tym [linkiem](Hardware/gps_tracker2.0/gps_tracker2.0.sch)
 
-![datasheet](pictures/GPS_Tracker_schema.png)
+- [link do pliku z schematem](Hardware/gps_tracker2.0/gps_tracker2.0.sch)
+
+![schema](pictures/GPS_Tracker_schema.png)
 _Figure 2. Schema of GPS Tracker_
 
 </details>
@@ -81,9 +83,35 @@ _Figure 2. Schema of GPS Tracker_
 <details>
 
 Na poniższym obrazku przedstawione zostały obie strony dwustronnej płytki PCB, która łączy wszytskie elementy. Lewa strona (niebieskie ścieżki) przedstawia dolną warstwę natomiast prawa (czerwone ścieżki) górną warstwę.
-Plik z płytką dostępny jest pod tym [linkiem](Hardware/gps_tracker2.0/gps_tracker2.0.sch)
 
-![datasheet](pictures/gps_tracker_board.png)
+- [link do piku z płytką PCB](Hardware/gps_tracker2.0/gps_tracker2.0.sch)
+
+![board](pictures/gps_tracker_board.png)
 _Figure 3. GPS Tracker board_
+
+</details>
+
+### Software
+
+Napisanie oprogramowania obsługującego moduły urządzenia oraz utworzenie protokołu komunikacyjnego jest niezbędne, by obsłużyć hardware i spełnić wymagania,
+które stawiane są przed GPS Tracker'em. W tym celu wykorzystany został popularny framework STM32duino wraz, który jest wygodną i przyjemną platformą do tworzenia aplikacji dla
+systemów wbudowanych.
+GPS Tracker działa w oparciu o system czasu rzeczywistego FreeRTOS, aby dawać gwarancję wykonania zadań w określonym czasie. Symulacja wielowątkowego działania procesora pozwala
+na odczytywanie danych z wszytskich sensorów z maksymalną częstotliwością czujników. Wszystkie dane zapisywane są w trwałej pamięci flash, dzięki czemu po znaleieniu rakiety mogą zostać one odczytane, a na ich podstawie możliwe jest wykreślenie na mapie dokładnego toru lotu rakiety.
+
+Na potrzeby obsługi nowoczesnego modułu komunikacji dalekiego zasięgu -
+LoRa - została przez nas napisana dedykowana biblioteka. Biblioteka implementuje protokuł komunkacyjny, który znacząco ułatwia komunikację radiową natomiast obsługa modułu jest przyjamna dla użytkownika.Natomiast wydajność łącza radiowego uzyskana dzięki oprogramowaniu naszego zespołu jest większa niż w przypadku użytkowania biblioteki afirmowanej przez producenta modułu.
+
+#### Block Diagram
+
+<details>
+
+Na pozniższym obrazku przedstawiony został schemat blokowy procesów wykonywanych w ramach działania systemu czasu rzeczywistego zaimplementowanego na potrzeby obługi GPS Tracker'a.
+
+- [link do pliku z kodem źródłowym GPS Tracker'a]()
+- [link do pliku nagłówkowego GPS Tracker'a]()
+
+![block_diagram]()
+_Figure 4. GPS Tracker code diagram_
 
 </details>
