@@ -18,16 +18,16 @@ wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt sys
   - [About](#about)
   - [GPS Tracker](#gps-tracker)
     - [Hardware](#hardware)
-      - [Sensors and components](#sensors-and-components)
+      - [Sensors and Components](#sensors-and-components)
       - [Schema](#schema)
       - [Board](#board)
     - [Software](#software)
       - [Block Diagram](#block-diagram)
   - [Receiver](#receiver)
     - [Hardware](#hardware-1)
-      - [Sensors](#sensors)
-      - [Schema](#schema)
-      - [board](#board)
+      - [Sensors and Components](#sensors-and-components-1)
+      - [Schema](#schema-1)
+      - [Board](#board-1)
     - [Software](#software)
   - [LoRa Library](#lora-library)
   - [Mobile App](#mobile-app)
@@ -47,7 +47,7 @@ Urządzenie jest także wyposażone w akumulator litowo-polimerowy i moduł umo�
 
 ![datasheet](pictures/tracker_description.png)
 
-<div align="center"><font size="2">_Figure 1. Render of GPS Tracker Board_</font></div>
+<div align="center"><font size="2"><em>Figure 1. Render of GPS Tracker Board</em></font></div>
 
 #### Sensors and components
 
@@ -76,7 +76,7 @@ Poniżej przedstawiony został dokładny schemat GPS tracker'a.
 
 ![schema](pictures/GPS_Tracker_schema.png)
 
-<div align="center"><font size="2">_Figure 2. Schema of GPS Tracker_</font></div>
+<div align="center"><font size="2"><em>Figure 2. Schema of GPS Tracker</em></font></div>
 
 </details>
 
@@ -90,7 +90,7 @@ Na poniższym obrazku przedstawione zostały obie strony dwustronnej płytki PCB
 
 ![board](pictures/gps_tracker_board.png)
 
-<div align="center"><font size="2">_Figure 3. GPS Tracker board_</font></div>
+<div align="center"><font size="2"><em>Figure 3. GPS Tracker board</em></font></div>
 
 </details>
 
@@ -116,7 +116,7 @@ Na pozniższym obrazku przedstawiony został schemat blokowy procesów wykonywan
 
 ![block_diagram]()
 
-<div align="center"><font size="2"> _Figure 4. GPS Tracker code diagram_</font></div>
+<div align="center"><font size="2"> <em>Figure 4. GPS Tracker code diagram</em></font></div>
 
 </details>
 
@@ -125,3 +125,67 @@ Na pozniższym obrazku przedstawiony został schemat blokowy procesów wykonywan
 Drugą częścią systemu jest Receiver, który wraz z smartfonem tworzy stację odbiorczą dla sygnału emitowanego z rakiety. Urządzenie wyposażone w antenę kierunkową pozwala na łączność z rakietami odbywającymi loty stratosferyczne. Odebrane dane wizualizowane są w czasie rzeczywistym na mapie satelitarnej na ekranie połączonego smartfona.
 
 ### Hardware
+
+Receiver jest stosunkowo prostym urządzeniem,
+
+bla bla bla bla bla bla....
+
+#### Sensors and components
+
+<details>
+
+Poniższa tabela przedstawia wszytkie moduły cyforwe wykorzystane w projekcie GPS tracker'a wraz z odnośnikiem do poszczególnych dokumentacji.
+
+| Sensor |          Device |                                         Datasheet |
+| ------ | --------------: | ------------------------------------------------: |
+| uC     |           ESP32 |        [datasheet](datasheet/esp32_datasheet.pdf) |
+| Radio  | LoRa E32-ttl-1W | [datasheet](datasheet/E32-433T30D_Usermanual.pdf) |
+
+</details>
+
+#### Schema
+
+<details>
+
+Poniżej przedstawiony został dokładny schemat Receivera.
+
+- [link do pliku z schematem](Hardware/receiver/receiver.sch)
+
+![schema](pictures/receiver_schema.png)
+
+<div align="center"><font size="2"><em>Figure 5. Schema of Receiver</em></font></div>
+
+</details>
+
+#### Board
+
+<details>
+
+Na poniższym obrazku przedstawione zostały obie strony dwustronnej płytki PCB, która łączy wszytskie elementy. Lewa strona (niebieskie ścieżki) przedstawia dolną warstwę natomiast prawa (czerwone ścieżki) górną warstwę.
+
+- [link do piku z płytką PCB](Hardware/receiver/receiver.brd)
+
+![board](pictures/receiver_board.png)
+
+<div align="center"><font size="2"><em>Figure 6. Receiver board</em></font></div>
+
+</details>
+
+### Software
+
+bla bla bla...
+
+#### Block Diagram
+
+<details>
+
+Na pozniższym obrazku przedstawiony został schemat blokowy procesów wykonywanych w ramach działania systemu czasu rzeczywistego zaimplementowanego na potrzeby obługi Receivera.
+
+- [link do pliku z kodem źródłowym Receiver'a]()
+- [link do pliku nagłówkowego Receiver'a]()
+
+![block_diagram]()
+
+<div align="center"><font size="2"> <em>Figure 7. Receiver code diagram</em></font></div>
+
+</details>
