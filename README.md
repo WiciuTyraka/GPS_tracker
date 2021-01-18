@@ -55,14 +55,14 @@ Urządzenie jest także wyposażone w akumulator litowo-polimerowy i moduł umo�
 
 Poniższa tabela przedstawia wszytkie moduły cyforwe wykorzystane w projekcie GPS tracker'a wraz z odnośnikiem do poszczególnych dokumentacji.
 
-| Sensor          |          Device |                                           Datasheet |
-| --------------- | --------------: | --------------------------------------------------: |
-| uC              |      STM32 F411 |              [datasheet](datasheet/stm32f411ce.pdf) |
-| GPS             |     Quectel L80 | [datasheet](datasheet/L80_Hardware_Design_V1.1.pdf) |
-| Radio           | LoRa E32-ttl-1W |   [datasheet](datasheet/E32-433T30D_Usermanual.pdf) |
-| Barometer       |          BMP280 |               [datasheet](datasheet/BST-BMP280.pdf) |
-| Flash memory    |         W25Q128 |                [datasheet](datasheet/w25q128fv.pdf) |
-| Battery charger | MCP73833-AMI/UN |             [datasheet](datasheet/22005a-76648.pdf) |
+| Sensor          |          Device |                                                    Datasheet |
+| --------------- | --------------: | -----------------------------------------------------------: |
+| uC              |      STM32 F411 |              [datasheet](Hardware/datasheet/stm32f411ce.pdf) |
+| GPS             |     Quectel L80 | [datasheet](Hardware/datasheet/L80_Hardware_Design_V1.1.pdf) |
+| Radio           | LoRa E32-ttl-1W |   [datasheet](Hardware/datasheet/E32-433T30D_Usermanual.pdf) |
+| Barometer       |          BMP280 |               [Hardware/datasheet](datasheet/BST-BMP280.pdf) |
+| Flash memory    |         W25Q128 |                [Hardware/datasheet](datasheet/w25q128fv.pdf) |
+| Battery charger | MCP73833-AMI/UN |             [Hardware/datasheet](datasheet/22005a-76648.pdf) |
 
 </details>
 
@@ -103,7 +103,7 @@ GPS Tracker działa w oparciu o system czasu rzeczywistego FreeRTOS, aby dawać 
 na odczytywanie danych z wszytskich sensorów z maksymalną częstotliwością czujników. Wszystkie dane zapisywane są w trwałej pamięci flash, dzięki czemu po znaleieniu rakiety mogą zostać one odczytane, a na ich podstawie możliwe jest wykreślenie na mapie dokładnego toru lotu rakiety.
 
 Na potrzeby obsługi nowoczesnego modułu komunikacji dalekiego zasięgu -
-LoRa - została przez nas napisana dedykowana biblioteka. Biblioteka implementuje protokuł komunkacyjny, który znacząco ułatwia komunikację radiową natomiast obsługa modułu jest przyjamna dla użytkownika.Natomiast wydajność łącza radiowego uzyskana dzięki oprogramowaniu naszego zespołu jest większa niż w przypadku użytkowania biblioteki afirmowanej przez producenta modułu.
+LoRa - została przez nas napisana dedykowana biblioteka. Biblioteka implementuje protokuł komunkacyjny, który znacząco ułatwia komunikację radiową natomiast obsługa modułu jest przyjamna dla użytkownika. Wydajność łącza radiowego uzyskana dzięki oprogramowaniu naszego zespołu jest większa niż w przypadku użytkowania biblioteki afirmowanej przez producenta modułu.
 
 #### Block Diagram
 
@@ -111,8 +111,7 @@ LoRa - została przez nas napisana dedykowana biblioteka. Biblioteka implementuj
 
 Na pozniższym obrazku przedstawiony został schemat blokowy procesów wykonywanych w ramach działania systemu czasu rzeczywistego zaimplementowanego na potrzeby obługi GPS Tracker'a.
 
-- [link do pliku z kodem źródłowym GPS Tracker'a]()
-- [link do pliku nagłówkowego GPS Tracker'a]()
+- [link do pliku z kodem źródłowym GPS Tracker'a](Software\gps_tracker\transmiterRTOS_ConfigRadioTyraka.ino)
 
 ![block_diagram]()
 
@@ -126,9 +125,12 @@ Drugą częścią systemu jest Receiver, który wraz z smartfonem tworzy stację
 
 ### Hardware
 
-Receiver jest stosunkowo prostym urządzeniem,
+Receiver jest stosunkowo prostym urządzeniem, wyposażoy jest oczywiście w odbiornik radiowy umożliwiający nawiązenie komunikaji radiowej z rakietą oraz jego działanie oparte jest o mikrokontroler ESP32, który posiada zintegrowany moduł Bluetooth i Wi-Fi. Urządzenie wyposażone jest także w 4 złącza umożliwiające komunikację przewodową poprzez różne protokoły, takie jak 2x UART, SPI, I2C. Zastosowanie tak mnogiej liczby interfejsów sprawia, że receiver jest bardzo uniwersalnym urządzeniem, które może zostać w łatwy i przyjemny sposób wykorzystane w wielu projektach jako gateway dla sygnału radiowego LoRa.
 
-bla bla bla bla bla bla....
+Na potrzeby naszego systemu wykorzystywane są trzy interfejsy. Przy pomocy standardu bezprzewodowego Bluetooth Receiver łączy się z smartfonem który przy pomocy dedykowanej aplikacji staje wyświetlaczem dla danych telemetrycznych odbieranych z rakiety.
+standard komunikacji Wi-Fi, wykorzystywany jest do postowania odebranych danych na server za pomocą rest api.
+Użytkownik ma dostęp do nich poprzez naszą aplikację, która archiwizuje i umożliwia przeglądanie wszystkich danych z różnych lotów i testów.
+Ostatnim wykorzystanym interfejsem jest UART, podpobnie jak w przypadku GPS Tracker'a służy on do konfigurowania parametrówtransmisji takich jak kanał radiowy, moc transmitowanego sygnału oraz data rate.
 
 #### Sensors and components
 
@@ -136,10 +138,10 @@ bla bla bla bla bla bla....
 
 Poniższa tabela przedstawia wszytkie moduły cyforwe wykorzystane w projekcie GPS tracker'a wraz z odnośnikiem do poszczególnych dokumentacji.
 
-| Sensor |          Device |                                         Datasheet |
-| ------ | --------------: | ------------------------------------------------: |
-| uC     |           ESP32 |        [datasheet](datasheet/esp32_datasheet.pdf) |
-| Radio  | LoRa E32-ttl-1W | [datasheet](datasheet/E32-433T30D_Usermanual.pdf) |
+| Sensor |          Device |                                                  Datasheet |
+| ------ | --------------: | ---------------------------------------------------------: |
+| uC     |           ESP32 |        [datasheet](Hardware/datasheet/esp32_datasheet.pdf) |
+| Radio  | LoRa E32-ttl-1W | [datasheet](Hardware/datasheet/E32-433T30D_Usermanual.pdf) |
 
 </details>
 
@@ -173,16 +175,22 @@ Na poniższym obrazku przedstawione zostały obie strony dwustronnej płytki PCB
 
 ### Software
 
-bla bla bla...
+Podobnie jak w przypadku GPS Tracker'a kod został napisany z wykorzystaniem freamworku Arduino. Jednak w tym przypadku system czasu rzeczywistego nie został wykorzystany, kod działa w sposób proceduralny.
+
+Na potrzeby obsługi nowoczesnego modułu komunikacji dalekiego zasięgu -
+LoRa - została przez nas napisana dedykowana biblioteka. Biblioteka implementuje protokuł komunkacyjny, który znacząco ułatwia komunikację radiową natomiast obsługa modułu jest przyjamna dla użytkownika. Wydajność łącza radiowego uzyskana dzięki oprogramowaniu naszego zespołu jest większa niż w przypadku użytkowania biblioteki afirmowanej przez producenta modułu.
+
+`NOTE : marge kodów do receivera w progresie`
+
+`NOTE 2: prace nad implementacją RTOS wersji dla receivera trwają`
 
 #### Block Diagram
 
 <details>
 
-Na pozniższym obrazku przedstawiony został schemat blokowy procesów wykonywanych w ramach działania systemu czasu rzeczywistego zaimplementowanego na potrzeby obługi Receivera.
+Na pozniższym obrazku przedstawiony został schemat blokowy proceduralnego kodu Receiver'a
 
-- [link do pliku z kodem źródłowym Receiver'a]()
-- [link do pliku nagłówkowego Receiver'a]()
+- [link do pliku z kodem źródłowym Receiver'a](Software\receiver\reciverRadioTyrakaV2.ino)
 
 ![block_diagram]()
 
