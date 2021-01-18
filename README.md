@@ -111,7 +111,7 @@ LoRa - została przez nas napisana dedykowana biblioteka. Biblioteka implementuj
 
 Na pozniższym obrazku przedstawiony został schemat blokowy procesów wykonywanych w ramach działania systemu czasu rzeczywistego zaimplementowanego na potrzeby obługi GPS Tracker'a.
 
-- [link do pliku z kodem źródłowym GPS Tracker'a](Software\gps_tracker\transmiterRTOS_ConfigRadioTyraka.ino)
+- [link do pliku z kodem źródłowym GPS Tracker'a](Software/gps_tracker/transmiterRTOS_ConfigRadioTyraka.ino)
 
 ![block_diagram]()
 
@@ -190,7 +190,7 @@ LoRa - została przez nas napisana dedykowana biblioteka. Biblioteka implementuj
 
 Na pozniższym obrazku przedstawiony został schemat blokowy proceduralnego kodu Receiver'a
 
-- [link do pliku z kodem źródłowym Receiver'a](Software\receiver\reciverRadioTyrakaV2.ino)
+- [link do pliku z kodem źródłowym Receiver'a](Software/receiver/eciverRadioTyrakaV2.ino)
 
 ![block_diagram]()
 
