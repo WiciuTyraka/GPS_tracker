@@ -30,6 +30,9 @@ wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt sys
       - [Board](#board-1)
     - [Software](#software)
   - [LoRa Library](#lora-library)
+    - [Setting and Basic Usage](#setting-and-basic-usage)
+      - [Pinout](#pinout)
+      - [Constructor](#constructor)
   - [Mobile App](#mobile-app)
     - [Software](#software)
   - [Web App](#web-app)
@@ -103,7 +106,7 @@ GPS Tracker działa w oparciu o system czasu rzeczywistego FreeRTOS, aby dawać 
 na odczytywanie danych z wszytskich sensorów z maksymalną częstotliwością czujników. Wszystkie dane zapisywane są w trwałej pamięci flash, dzięki czemu po znaleieniu rakiety mogą zostać one odczytane, a na ich podstawie możliwe jest wykreślenie na mapie dokładnego toru lotu rakiety.
 
 Na potrzeby obsługi nowoczesnego modułu komunikacji dalekiego zasięgu -
-LoRa - została przez nas napisana dedykowana biblioteka. Biblioteka implementuje protokuł komunkacyjny, który znacząco ułatwia komunikację radiową natomiast obsługa modułu jest przyjamna dla użytkownika. Wydajność łącza radiowego uzyskana dzięki oprogramowaniu naszego zespołu jest większa niż w przypadku użytkowania biblioteki afirmowanej przez producenta modułu.
+LoRa - została napisana dedykowana biblioteka. Więcej informacji na jej temat można znaleźć [tutaj](#LoRa-Library)
 
 #### Block Diagram
 
@@ -176,9 +179,7 @@ Na poniższym obrazku przedstawione zostały obie strony dwustronnej płytki PCB
 ### Software
 
 Podobnie jak w przypadku GPS Tracker'a kod został napisany z wykorzystaniem freamworku Arduino. Jednak w tym przypadku system czasu rzeczywistego nie został wykorzystany, kod działa w sposób proceduralny.
-
-Na potrzeby obsługi nowoczesnego modułu komunikacji dalekiego zasięgu -
-LoRa - została przez nas napisana dedykowana biblioteka. Biblioteka implementuje protokuł komunkacyjny, który znacząco ułatwia komunikację radiową natomiast obsługa modułu jest przyjamna dla użytkownika. Wydajność łącza radiowego uzyskana dzięki oprogramowaniu naszego zespołu jest większa niż w przypadku użytkowania biblioteki afirmowanej przez producenta modułu.
+Do obsługi modułu komunikacji radiowej, również została wykorzystana autorska biblioteka.
 
 `NOTE : marge kodów do receivera w progresie`
 
@@ -197,3 +198,41 @@ Na pozniższym obrazku przedstawiony został schemat blokowy proceduralnego kodu
 <div align="center"><font size="2"> <em>Figure 7. Receiver code diagram</em></font></div>
 
 </details>
+
+## LoRa Library - RadioTyraka
+
+Na potrzeby obsługi nowoczesnego modułu komunikacji dalekiego zasięgu -
+LoRa - została napisana dedykowana biblioteka. Biblioteka implementuje protokuł komunkacyjny, który znacząco ułatwia komunikację radiową natomiast obsługa modułu jest przyjamna dla użytkownika. Wydajność łącza radiowego uzyskana dzięki oprogramowaniu naszego zespołu jest większa niż w przypadku użytkowania biblioteki afirmowanej przez producenta modułu.
+
+- [link do biblioteki](Software/)
+
+### Setting and Basic Usage
+
+## Pinout
+
+<details>
+
+| Pin no. | Pin name |         Pin direction | Pin application                                                                                                                                                                                                                                                                                                                               |
+| ------- | -------: | --------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1       |       M0 | Input（weak pull-up） | Work with M1 & decide the four operating modes.Floating is not allowed, can be ground.                                                                                                                                                                                                                                                        |
+| 2       |       M1 | Input（weak pull-up） | Work with M0 & decide the four operating modes.Floating is not allowed, can be ground.                                                                                                                                                                                                                                                        |
+| 3       |      RXD |                 Input | TTL UART inputs, connects to external (MCU, PC) TXD outputpin. Can be configured as open-drain or pull-up input.                                                                                                                                                                                                                              |
+| 4       |      TXD |                Output | TTL UART outputs, connects to external RXD (MCU, PC) inputpin. Can be configured as open-drain or push-pull output                                                                                                                                                                                                                            |
+| 5       |      AUX |                Output | To indicate module’s working status & wakes up the external MCU. During the procedure of self-check initialization, the pin outputs low level. Can be configured as open-drain output orpush-pull output (floating is allowed). If you have trouble like freeze device, you must put a pull-up 4.7k resistor or better connect to the device. |
+| 6       |      VCC |                       | Power supply 2.3V~5.5V DC                                                                                                                                                                                                                                                                                                                     |
+| 7       |      GND |                       | Ground                                                                                                                                                                                                                                                                                                                                        |
+
+Various modes can be set via M0 and M1 pins.
+
+| Mode         |  M1 |  M0 | Explanation                                                                                                                                                    |
+| ------------ | --: | --: | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Normal       |   0 |   0 | UART and wireless channel is good to go                                                                                                                        |
+| Wake-up      |   0 |   1 | Same as normal but a preamble code is added to transmitted data for waking-up the receiver.                                                                    |
+| Power-Saving |   0 |   0 | UART is disable and wireless is on WOR(wake on radio) mode which means the device will turn on when there is data to be received. Transmission is not allowed. |
+| Sleep        |   0 |   1 | Used in setting parameters. Transmitting and receiving disabled.                                                                                               |
+
+</details>
+
+## Constructor
+
+`RadioTyraka(Stream *s = &Serial, uint8_t m0_pin = 4, uint8_t m1_pin = 5, uint8_t aux_pin = 8, uint8_t ID = 0);`
