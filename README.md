@@ -30,9 +30,12 @@ wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt sys
       - [Board](#board-1)
     - [Software](#software)
   - [LoRa Library](#lora-library)
-    - [Setting and Basic Usage](#setting-and-basic-usage)
-      - [Pinout](#pinout)
-      - [Constructor](#constructor)
+    - [Detailed Description](#detailed-description)
+    - [Types](#types)
+    - [Public Member Functions](#public-member-function)
+    - [Protected Member Function](#protected-member-function)
+    - [Private Member Functions](#private-member-function)
+    - [Library Member Documentation](#library-member-documentation)
   - [Mobile App](#mobile-app)
     - [Software](#software)
   - [Web App](#web-app)
@@ -208,7 +211,7 @@ RadioTyraka powstało jako nakładka na popularną bibliotekę [RadioHead](https
 
 - [link do biblioteki](Software/)
 
-### Setting and Basic Usage
+### Detailed Description
 
 ## Pinout
 
@@ -237,7 +240,9 @@ Various modes can be set via M0 and M1 pins.
 
 </details>
 
-## Constructor
+## Library Member Documentation
+
+### Constructor
 
 <details>
  You can have multiple instances of Contructor, but each instance must have its own serial connection, M0 M1 and AUX connections. Initialises the mode of the referenced pins Does NOT set the baud rate of the serial connection to the radio.
@@ -258,15 +263,15 @@ Various modes can be set via M0 and M1 pins.
 
 </details>
 
-## Init
+### Init
 
 <details>
 
 Itialise the device transport hardware and software. Make sure the RadioTyraka is properly, including setting the serial port baud rate and parity to that configured in the radio (typically 9600 baud, 8N1) before calling init(). Sets the module to default transmition values (these setting can be changed after initialisation with the various set\* functions):
 
-- Transmition frequency - 443MHz,
-- Transmision power - 21dBm,
-- Data rate - 5kpbs.
+- transmition frequency - `443MHz`,
+- transmision power - `21dBm`,
+- data rate - `5kpbs`.
 
 This function may not return if the AUX pin is not connected. Initialisation failure can be caused by: Electrical connections to the radio, incorrect or incomplete Radio configured to use a different baud rate to the one configured to the microcontoler serial port, incorrect radio module connected to the serial port. Other serial communicaitons problems between the microcontroler and the radio device.
 
@@ -280,4 +285,6 @@ inherited from RadioHead.
 
 </details>
 
-##
+### Transmision Parameter Setting
+
+There a set of methods for manage transmission setting like freqency, power and data rate
