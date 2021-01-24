@@ -239,17 +239,17 @@ Various modes can be set via M0 and M1 pins.
 
 ## Constructor
 
-Contructor. You can have multiple instances, but each instance must have its own serial connection, M0 M1 and AUX connections. Initialises the mode of the referenced pins Does NOT set the baud rate of the serial connection to the radio.
+<details>
+ You can have multiple instances of Contructor, but each instance must have its own serial connection, M0 M1 and AUX connections. Initialises the mode of the referenced pins Does NOT set the baud rate of the serial connection to the radio.
 
-`RadioTyraka( Stream \*s = &Serial,
+    RadioTyraka( Stream *s = &Serial,
+                 uint8_t m0_pin = 4,
+                 uint8_t m1_pin = 5,
+                 uint8_t aux_pin = 8,
+                 uint8_t ID = 0
+                 );
 
-              uint8_t m0_pin = 4,
-
-              uint8_t m1_pin = 5,
-
-              uint8_t aux_pin = 8,
-
-              uint8_t ID = 0);`
+**Parameters**
 
 - `*s` - pointer to Stream class object. Used for UART communication between the microcontroler and LoRa device. HardwareSerial or SoftwareSerial object shouldbe used in constructor invoke.
 - `m0_pin` and `m1_pin` - pins used for changing operation mode.
@@ -279,3 +279,5 @@ This function may not return if the AUX pin is not connected. Initialisation fai
 inherited from RadioHead.
 
 </details>
+
+##
