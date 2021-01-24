@@ -204,6 +204,8 @@ Na pozniższym obrazku przedstawiony został schemat blokowy proceduralnego kodu
 Na potrzeby obsługi nowoczesnego modułu komunikacji dalekiego zasięgu -
 LoRa - została napisana dedykowana biblioteka. Biblioteka implementuje protokuł komunkacyjny, który znacząco ułatwia komunikację radiową natomiast obsługa modułu jest przyjamna dla użytkownika. Wydajność łącza radiowego uzyskana dzięki oprogramowaniu naszego zespołu jest większa niż w przypadku użytkowania biblioteki afirmowanej przez producenta modułu.
 
+RadioTyraka powstało jako nakładka na popularną bibliotekę [RadioHead](https://www.airspayce.com/mikem/arduino/RadioHead/). Znacząco usprawnia ona niektóre z funkcji oferowanych przez bibliotekę, a także wprowadza nowe użyteczne rozwiązania.
+
 - [link do biblioteki](Software/)
 
 ### Setting and Basic Usage
@@ -222,6 +224,8 @@ LoRa - została napisana dedykowana biblioteka. Biblioteka implementuje protoku�
 | 6       |      VCC |                       | Power supply 2.3V~5.5V DC                                                                                                                                                                                                                                                                                                                     |
 | 7       |      GND |                       | Ground                                                                                                                                                                                                                                                                                                                                        |
 
+&nbsp;
+
 Various modes can be set via M0 and M1 pins.
 
 | Mode         |  M1 |  M0 | Explanation                                                                                                                                                    |
@@ -235,4 +239,43 @@ Various modes can be set via M0 and M1 pins.
 
 ## Constructor
 
-`RadioTyraka(Stream *s = &Serial, uint8_t m0_pin = 4, uint8_t m1_pin = 5, uint8_t aux_pin = 8, uint8_t ID = 0);`
+Contructor. You can have multiple instances, but each instance must have its own serial connection, M0 M1 and AUX connections. Initialises the mode of the referenced pins Does NOT set the baud rate of the serial connection to the radio.
+
+`RadioTyraka( Stream \*s = &Serial,
+
+              uint8_t m0_pin = 4,
+
+              uint8_t m1_pin = 5,
+
+              uint8_t aux_pin = 8,
+
+              uint8_t ID = 0);`
+
+- `*s` - pointer to Stream class object. Used for UART communication between the microcontroler and LoRa device. HardwareSerial or SoftwareSerial object shouldbe used in constructor invoke.
+- `m0_pin` and `m1_pin` - pins used for changing operation mode.
+- `aux_pin` - is a pin that check the operation, transmission and receiving status.
+- `ID` - a unique identifier in the range 1-255. enables identification of the transmitting device. It is not needed for correct operation, the default value is 0.
+
+</details>
+
+## Init
+
+<details>
+
+Itialise the device transport hardware and software. Make sure the RadioTyraka is properly, including setting the serial port baud rate and parity to that configured in the radio (typically 9600 baud, 8N1) before calling init(). Sets the module to default transmition values (these setting can be changed after initialisation with the various set\* functions):
+
+- Transmition frequency - 443MHz,
+- Transmision power - 21dBm,
+- Data rate - 5kpbs.
+
+This function may not return if the AUX pin is not connected. Initialisation failure can be caused by: Electrical connections to the radio, incorrect or incomplete Radio configured to use a different baud rate to the one configured to the microcontoler serial port, incorrect radio module connected to the serial port. Other serial communicaitons problems between the microcontroler and the radio device.
+
+**Returns**
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if initialisation succeeded.
+
+&nbsp;
+
+inherited from RadioHead.
+
+</details>
