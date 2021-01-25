@@ -29,13 +29,7 @@ wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt sys
       - [Schema](#schema-1)
       - [Board](#board-1)
     - [Software](#software)
-  - [LoRa Library](#lora-library)
-    - [Detailed Description](#detailed-description)
-    - [Types](#types)
-    - [Public Member Functions](#public-member-function)
-    - [Protected Member Function](#protected-member-function)
-    - [Private Member Functions](#private-member-function)
-    - [Library Member Documentation](#library-member-documentation)
+  - [LoRa Library - RadioTyraka](#lora-library---radiotyraka)
   - [Mobile App](#mobile-app)
     - [Software](#software)
   - [Web App](#web-app)
@@ -109,7 +103,7 @@ GPS Tracker działa w oparciu o system czasu rzeczywistego FreeRTOS, aby dawać 
 na odczytywanie danych z wszytskich sensorów z maksymalną częstotliwością czujników. Wszystkie dane zapisywane są w trwałej pamięci flash, dzięki czemu po znaleieniu rakiety mogą zostać one odczytane, a na ich podstawie możliwe jest wykreślenie na mapie dokładnego toru lotu rakiety.
 
 Na potrzeby obsługi nowoczesnego modułu komunikacji dalekiego zasięgu -
-LoRa - została napisana dedykowana biblioteka. Więcej informacji na jej temat można znaleźć [tutaj](#LoRa-Library)
+LoRa - została napisana dedykowana biblioteka. Więcej informacji na jej temat można znaleźć [tutaj](#lora-library---radiotyraka)
 
 #### Block Diagram
 
@@ -209,82 +203,4 @@ LoRa - została napisana dedykowana biblioteka. Biblioteka implementuje protoku�
 
 RadioTyraka powstało jako nakładka na popularną bibliotekę [RadioHead](https://www.airspayce.com/mikem/arduino/RadioHead/). Znacząco usprawnia ona niektóre z funkcji oferowanych przez bibliotekę, a także wprowadza nowe użyteczne rozwiązania.
 
-- [link do biblioteki](Software/)
-
-### Detailed Description
-
-## Pinout
-
-<details>
-
-| Pin no. | Pin name |         Pin direction | Pin application                                                                                                                                                                                                                                                                                                                               |
-| ------- | -------: | --------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1       |       M0 | Input（weak pull-up） | Work with M1 & decide the four operating modes.Floating is not allowed, can be ground.                                                                                                                                                                                                                                                        |
-| 2       |       M1 | Input（weak pull-up） | Work with M0 & decide the four operating modes.Floating is not allowed, can be ground.                                                                                                                                                                                                                                                        |
-| 3       |      RXD |                 Input | TTL UART inputs, connects to external (MCU, PC) TXD outputpin. Can be configured as open-drain or pull-up input.                                                                                                                                                                                                                              |
-| 4       |      TXD |                Output | TTL UART outputs, connects to external RXD (MCU, PC) inputpin. Can be configured as open-drain or push-pull output                                                                                                                                                                                                                            |
-| 5       |      AUX |                Output | To indicate module’s working status & wakes up the external MCU. During the procedure of self-check initialization, the pin outputs low level. Can be configured as open-drain output orpush-pull output (floating is allowed). If you have trouble like freeze device, you must put a pull-up 4.7k resistor or better connect to the device. |
-| 6       |      VCC |                       | Power supply 2.3V~5.5V DC                                                                                                                                                                                                                                                                                                                     |
-| 7       |      GND |                       | Ground                                                                                                                                                                                                                                                                                                                                        |
-
-&nbsp;
-
-Various modes can be set via M0 and M1 pins.
-
-| Mode         |  M1 |  M0 | Explanation                                                                                                                                                    |
-| ------------ | --: | --: | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Normal       |   0 |   0 | UART and wireless channel is good to go                                                                                                                        |
-| Wake-up      |   0 |   1 | Same as normal but a preamble code is added to transmitted data for waking-up the receiver.                                                                    |
-| Power-Saving |   0 |   0 | UART is disable and wireless is on WOR(wake on radio) mode which means the device will turn on when there is data to be received. Transmission is not allowed. |
-| Sleep        |   0 |   1 | Used in setting parameters. Transmitting and receiving disabled.                                                                                               |
-
-</details>
-
-## Library Member Documentation
-
-### Constructor
-
-<details>
- You can have multiple instances of Contructor, but each instance must have its own serial connection, M0 M1 and AUX connections. Initialises the mode of the referenced pins Does NOT set the baud rate of the serial connection to the radio.
-
-    RadioTyraka( Stream *s = &Serial,
-                 uint8_t m0_pin = 4,
-                 uint8_t m1_pin = 5,
-                 uint8_t aux_pin = 8,
-                 uint8_t ID = 0
-                 );
-
-**Parameters**
-
-- `*s` - pointer to Stream class object. Used for UART communication between the microcontroler and LoRa device. HardwareSerial or SoftwareSerial object shouldbe used in constructor invoke.
-- `m0_pin` and `m1_pin` - pins used for changing operation mode.
-- `aux_pin` - is a pin that check the operation, transmission and receiving status.
-- `ID` - a unique identifier in the range 1-255. enables identification of the transmitting device. It is not needed for correct operation, the default value is 0.
-
-</details>
-
-### Init
-
-<details>
-
-Itialise the device transport hardware and software. Make sure the RadioTyraka is properly, including setting the serial port baud rate and parity to that configured in the radio (typically 9600 baud, 8N1) before calling init(). Sets the module to default transmition values (these setting can be changed after initialisation with the various set\* functions):
-
-- transmition frequency - `443MHz`,
-- transmision power - `21dBm`,
-- data rate - `5kpbs`.
-
-This function may not return if the AUX pin is not connected. Initialisation failure can be caused by: Electrical connections to the radio, incorrect or incomplete Radio configured to use a different baud rate to the one configured to the microcontoler serial port, incorrect radio module connected to the serial port. Other serial communicaitons problems between the microcontroler and the radio device.
-
-**Returns**
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if initialisation succeeded.
-
-&nbsp;
-
-inherited from RadioHead.
-
-</details>
-
-### Transmision Parameter Setting
-
-There a set of methods for manage transmission setting like freqency, power and data rate
+- [link do repozytorium biblioteki](Software/)
