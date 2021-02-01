@@ -32,7 +32,7 @@ wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt sys
   - [LoRa Library - RadioTyraka](#lora-library---radiotyraka)
   - [Mobile App](#mobile-app)
     - [Software](#software-3)
-  - [App's](#web-app)
+  - [App's](#app's)
 
 ## GPS Tracker
 
