@@ -219,9 +219,7 @@ Na poniższych obrazkach (rys. 8 i 9) widać menu ustawień...
 
 Rysunek 10 przedstawia mapę satelitarną...
 
-![datasheet](pictures/mobileapp_map.jpg | width=100)
-
-<img src="pictures/mobileapp_map.jpg" width="40%">
+<div align="center"><img src="pictures/mobileapp_map.jpg" width="60%"></div>
 
 <div align="center"><font size="2"><em>Figure 10.  Mobile app satelite map display </em></font></div>
 
