@@ -113,7 +113,7 @@ Na pozniższym obrazku przedstawiony został schemat blokowy procesów wykonywan
 
 - [link do pliku z kodem źródłowym GPS Tracker'a](Software/gps_tracker/transmiterRTOS_ConfigRadioTyraka.ino)
 
-![block_diagram]()
+![block_diagrm](pictures/rtos_block_diagram.png)
 
 <div align="center"><font size="2"> <em>Figure 4. GPS Tracker code diagram</em></font></div>
 
@@ -211,11 +211,18 @@ W celu wizualizacji lokalizacji szukanego obiektu stworzona została aplikacja m
 stacją odbiorczą i pobiera dane dotyczące aktualnej lokalizacji rakiety w czasie rzeczywistym. Dane wizualizowane są na mapie satelitarnej, co
 znacznie przyspiesza i ułatwia proces odzyskiwania rakiety.
 
-![datasheet](pictures/rtos_block_diagram.png)
+Na poniższych obrazkach (rys. 8 i 9) widać menu ustawień...
 
-![vid](mobileapp.mp4)
+|                                                                                        |                                                                                          |
+| :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
+|                      ![datasheet](pictures/mobileapp_setting.jpg)                      |                      ![datasheet](pictures/mobileapp_setting_2.jpg)                      |
+| <div align="center"><font size="2"><em>Figure 8. Mobile app setting </em></font></div> | <div align="center"><font size="2"><em>Figure 9. Mobile app setting 2 </em></font></div> |
 
-<div align="center"><font size="2"><em>Figure 8. Mobile app satelite map display </em></font></div>
+Rysunek 10 przedstawia
+
+![datasheet](pictures/mobileapp_map.jpg)
+
+<div align="center"><font size="2"><em>Figure 10.  Mobile app satelite map display </em></font></div>
 
 ## APP
 
