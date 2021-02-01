@@ -2,7 +2,7 @@
 
 ## About
 
-[PUT Rocket Lab](https://www.facebook.com/putrocketlab) jest Kołem Naukowym z Politechniki Poznańskiej zajmującym się projektowaniem, budowaniem oraz testowaniem technologii
+[PUT Rocket Lab](https://tyraka.pl/) jest Kołem Naukowym z Politechniki Poznańskiej zajmującym się projektowaniem, budowaniem oraz testowaniem technologii
 rakietowych. Flagowym projektem zespołu jest budowa rakiety sondażowej
 Hexa 2 napędzanej hybrydowym silnikiem rakietowym. Jednym z większych problemów, z jakimi przychodzi zmagać się inżynierom budującym
 rakiety, jest ich odzysk. Podczas testów rakieta zostaje wystrzelona w
@@ -28,12 +28,12 @@ wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt sys
       - [Sensors and Components](#sensors-and-components-1)
       - [Schema](#schema-1)
       - [Board](#board-1)
-    - [Software](#software)
+    - [Software](#software-2)
   - [LoRa Library - RadioTyraka](#lora-library---radiotyraka)
   - [Mobile App](#mobile-app)
-    - [Software](#software)
-  - [Web App](#web-app)
-    - [Software](#software)
+    - [Software](#software-3)
+  - [App](#web-app)
+    - [Software](#software-3)
 
 ## GPS Tracker
 
@@ -201,6 +201,28 @@ Na pozniższym obrazku przedstawiony został schemat blokowy proceduralnego kodu
 Na potrzeby obsługi nowoczesnego modułu komunikacji dalekiego zasięgu -
 LoRa - została napisana dedykowana biblioteka. Biblioteka implementuje protokuł komunkacyjny, który znacząco ułatwia komunikację radiową natomiast obsługa modułu jest przyjamna dla użytkownika. Wydajność łącza radiowego uzyskana dzięki oprogramowaniu naszego zespołu jest większa niż w przypadku użytkowania biblioteki afirmowanej przez producenta modułu.
 
-RadioTyraka powstało jako nakładka na popularną bibliotekę [RadioHead](https://www.airspayce.com/mikem/arduino/RadioHead/). Znacząco usprawnia ona niektóre z funkcji oferowanych przez bibliotekę, a także wprowadza nowe użyteczne rozwiązania.
+RadioTyraka powstało jako nakładka na popularną bibliotekę [RadioHead](https://www.airspayce.com/mikem/arduino/RadioHead/). Znacząco usprawnia ona niektóre z funkcji oferowanych przez bibliotekę, a także wprowadza nowe użyteczne rozwiązania. Biblioteka RadioTyraka znajduje się na osobnym repozytorium, które zawiera jej szczegółową dokumentację.
 
-- [link do repozytorium biblioteki](Software/)
+- [link do repozytorium z biblioteką](https://github.com/WiciuTyraka/RadioTyraka)
+
+## Mobile App
+
+W celu wizualizacji lokalizacji szukanego obiektu stworzona została aplikacja mobilna. Aplikacja łączy się za pomocą technologii Bluetooth ze
+stacją odbiorczą i pobiera dane dotyczące aktualnej lokalizacji rakiety w czasie rzeczywistym. Dane wizualizowane są na mapie satelitarnej, co
+znacznie przyspiesza i ułatwia proces odzyskiwania rakiety.
+
+![datasheet](pictures/rtos_block_diagram.png)
+
+![vid](mobileapp.mp4)
+
+<div align="center"><font size="2"><em>Figure 8. Mobile app satelite map display </em></font></div>
+
+## APP
+
+&nbsp;
+
+---
+
+&nbsp;
+
+_by Wiktor Tasarek_
