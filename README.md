@@ -32,8 +32,7 @@ wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt sys
   - [LoRa Library - RadioTyraka](#lora-library---radiotyraka)
   - [Mobile App](#mobile-app)
     - [Software](#software-3)
-  - [App](#web-app)
-    - [Software](#software-3)
+  - [App's](#web-app)
 
 ## GPS Tracker
 
@@ -218,13 +217,23 @@ Na poniższych obrazkach (rys. 8 i 9) widać menu ustawień...
 |                      ![datasheet](pictures/mobileapp_setting.jpg)                      |                      ![datasheet](pictures/mobileapp_setting_2.jpg)                      |
 | <div align="center"><font size="2"><em>Figure 8. Mobile app setting </em></font></div> | <div align="center"><font size="2"><em>Figure 9. Mobile app setting 2 </em></font></div> |
 
-Rysunek 10 przedstawia
+Rysunek 10 przedstawia mapę satelitarną...
 
 ![datasheet](pictures/mobileapp_map.jpg)
 
 <div align="center"><font size="2"><em>Figure 10.  Mobile app satelite map display </em></font></div>
 
-## APP
+## APP's
+
+Niniejsza praca dyplomowa została zrealizowana wraz z awioniką Tyraka w ramach przedmiotu "Zespołowy projekt inżynierski" na Wydziale Informatyki i Matematyki Uniwersytetu im. Adama Mickiewicza w Poznaniu. Produkty projektu przeznaczone są dla koła rakietowego Politechniki Poznańskiej. Jest to aplikacja, która pozwala na uporządkowanie, analizę, przechowywanie i wyświetlanie danych z testów rakiet oraz silników. Dzięki temu mamy podgląd do danych z czujników na żywo podczas testów, dane są przedstawiane w postaci wykresów oraz mapy z lokalizacją rakiety co ułatwia odczyt danych. Trzeba zadbać o to, by dane były poprawnie zapisane, aby po teście móc wykonać analizę — w tym celu dane będą eksportowe do Excela. W przypadku testu silnika aplikacja oblicza średni ciąg, czas spalania, impuls całkowity oraz właściwy. Testy będą sortowane oraz filtrowane, aby ułatwić do nich dostęp. Aplikacja umożliwia konfigurowanie oraz kontrolowanie modułów elektronicznych, zmianę parametrów uruchomieniowych modułu, odczyt danych i czyszczenie pamięci flash.
+
+Desktopowa aplikacja serwerowa odpowiada za odczytywanie danych wysyłanych przez elektronikę naziemną oraz przekazywanie ich w czasie rzeczywistym do aplikacji desktopowej. Zapisuje też ona otrzymane pomiary do odpowiednich plików JSON, w celu późniejszego wysłania ich do aplikacji webowej.
+
+Serwer lokalny umożliwia również komunikację poprzez interfejs USB z komaptybilnym urządzeniem takim jak GPS tracker lub Receiver. Dzięki temu użytkownik jest w stanie wysyłać do niej polecenia i ma możliwość jej prostej konfiguracji, bez znajomości języka C++. Użytkownik ma też możliwość pobierania i czytania plików bezpośrednio z płytki urządzenia.
+
+Głównym zadaniem webowej aplikacji serwerowej jest gromadzenie i możliwość eksportu danych historycznych do formatu JSON oraz CSV. Każdy użytkownik ma możliwość zalogowania się i dostęp do ograniczonych funkcjonalności aplikacji. Pełen dostęp posiada administrator, który zakłada konta użytkowników i zarządza aplikacją. Serwer webowy korzysta z nierelacyjnej bazy danych. Użytkownicy mają możliwość wyszukiwania konkretnych testów, jak i listowania większej ich ilości za pomocą dostępnych filtrów i funkcji sortujących.
+
+Częścią projektu jest też strona internetowa, która ma pełnić funkcję wizytówki koła w Internecie. Na tej samej domenie co wizytówka będzie można zalogować się jako członek koła i uzyskać dostęp do panelu historii testów. Możliwa będzie analiza i odtworzenie zapisu live z przeprowadzonych testów. Oprócz ich wyświetlania będzie można wgrywać nowe testy z plików oraz eksportować je w formacie JSON i CSV. Kolejną częścią systemu Tyraka jest aplikacja desktopowa stworzona za pomocą frameworka Electron, na której zobaczyć będzie można testy w czasie rzeczywistym, wgrywać testy z plików oraz konfigurować elektronikę. Aplikacja webowa oraz desktopowa napisana jest za pomocą frameworka Vue.js.
 
 &nbsp;
 
