@@ -236,6 +236,14 @@ Głównym zadaniem webowej aplikacji serwerowej jest gromadzenie i możliwość 
 
 Częścią projektu jest też strona internetowa, która ma pełnić funkcję wizytówki koła w Internecie. Na tej samej domenie co wizytówka będzie można zalogować się jako członek koła i uzyskać dostęp do panelu historii testów. Możliwa będzie analiza i odtworzenie zapisu live z przeprowadzonych testów. Oprócz ich wyświetlania będzie można wgrywać nowe testy z plików oraz eksportować je w formacie JSON i CSV. Kolejną częścią systemu Tyraka jest aplikacja desktopowa stworzona za pomocą frameworka Electron, na której zobaczyć będzie można testy w czasie rzeczywistym, wgrywać testy z plików oraz konfigurować elektronikę. Aplikacja webowa oraz desktopowa napisana jest za pomocą frameworka Vue.js.
 
+![datasheet](pictures/gps_tracker_config.PNG)
+
+<div align="center"><font size="2"><em>Figure 11. config application for GPS tracker </em></font></div>
+
+![datasheet](pictures/receiver_config.PNG)
+
+<div align="center"><font size="2"><em>Figure 12. config application for Receiver </em></font></div>
+
 &nbsp;
 
 ---
