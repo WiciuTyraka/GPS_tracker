@@ -240,6 +240,10 @@ Częścią projektu jest też strona internetowa, która ma pełnić funkcję wi
 
 <div align="center"><font size="2"><em>Figure 11. config application for GPS tracker </em></font></div>
 
+&nbsp;
+
+&nbsp;
+
 ![datasheet](pictures/receiver_config.PNG)
 
 <div align="center"><font size="2"><em>Figure 12. config application for Receiver </em></font></div>
