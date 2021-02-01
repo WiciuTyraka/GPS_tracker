@@ -28,7 +28,7 @@ wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt sys
       - [Sensors and Components](#sensors-and-components-1)
       - [Schema](#schema-1)
       - [Board](#board-1)
-    - [Software](#software-2)
+    - [Software](#software-1)
       - [Block Diagram](#block-diagram-1)
   - [LoRa Library - RadioTyraka](#lora-library---radiotyraka)
   - [Mobile App](#mobile-app)
