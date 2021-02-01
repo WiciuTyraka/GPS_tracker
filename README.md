@@ -29,6 +29,7 @@ wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt sys
       - [Schema](#schema-1)
       - [Board](#board-1)
     - [Software](#software-2)
+      - [Block Diagram](#block-diagram-1)
   - [LoRa Library - RadioTyraka](#lora-library---radiotyraka)
   - [Mobile App](#mobile-app)
     - [Software](#software-3)
