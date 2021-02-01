@@ -32,7 +32,7 @@ wolne od ograniczeń. W tym repozytorium przedstawiony jest autorski projekt sys
       - [Block Diagram](#block-diagram-1)
   - [LoRa Library - RadioTyraka](#lora-library---radiotyraka)
   - [Mobile App](#mobile-app)
-    - [Software](#software-1-1)
+    - [Software](#software-1)
   - [App's](#app's)
 
 ## GPS Tracker
