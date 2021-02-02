@@ -218,9 +218,13 @@ Dzięki temu przejdziemy do głównego okna (rys. 10) z widokiem mapy satelitarn
 
  <div align="center"><font size="2"><em>Figure 8. Mobile app setting </em></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size="2"><em>Figure 9. Mobile app setting 2 </em></font></div>
 
+&nbsp;
+
 Czerwonym znacznikiem oznaczony jest lokalizowany obiket - lokalizacja trckera.
 Po kliknięciu na znacznik użytkownik zostanie przeniesiony do map google na których zaznaczona będzie najkrótsza trasa od użytkownika do poszukiwanego obiektu.
 w lewym górnym rogu wyświetlany jest czas od ostatniej otrzymanej wiadomośći.
+
+&nbsp;
 
 <div align="center"><img src="pictures/mobileapp_map.jpg" width="60%"></div>
 
