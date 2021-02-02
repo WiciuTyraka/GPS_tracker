@@ -213,7 +213,7 @@ Na poniższych obrazkach (rys. 8 i 9) widać menu ustawień...
 | :------------------------------------------: | :--------------------------------------------: |
 | ![datasheet](pictures/mobileapp_setting.jpg) | ![datasheet](pictures/mobileapp_setting_2.jpg) |
 
- <div align="center"><font size="2"><em>Figure 8. Mobile app setting </em></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <font size="2"><em>Figure 9. Mobile app setting 2 </em></font></div>
+ <div align="center"><font size="2"><em>Figure 8. Mobile app setting </em></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size="2"><em>Figure 9. Mobile app setting 2 </em></font></div>
 
 Rysunek 10 przedstawia mapę satelitarną...
 
