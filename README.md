@@ -132,7 +132,7 @@ standard komunikacji Wi-Fi, wykorzystywany jest do postowania odebranych danych 
 Użytkownik ma dostęp do nich poprzez naszą aplikację, która archiwizuje i umożliwia przeglądanie wszystkich danych z różnych lotów i testów.
 Ostatnim wykorzystanym interfejsem jest UART, podpobnie jak w przypadku GPS Tracker'a służy on do konfigurowania parametrówtransmisji takich jak kanał radiowy, moc transmitowanego sygnału oraz data rate.
 
-![datasheet](pictures/receiver_description.png)
+![receiver_render](pictures/receiver_description.png)
 
 <div align="center"><font size="2"><em>Figure 1. Render of Receiver Board</em></font></div>
 
