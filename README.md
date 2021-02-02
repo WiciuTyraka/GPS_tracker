@@ -178,10 +178,6 @@ Na poniższym obrazku przedstawione zostały obie strony dwustronnej płytki PCB
 Podobnie jak w przypadku GPS Tracker'a kod został napisany z wykorzystaniem freamworku Arduino. Jednak w tym przypadku system czasu rzeczywistego nie został wykorzystany, kod działa w sposób proceduralny.
 Do obsługi modułu komunikacji radiowej, również została wykorzystana autorska biblioteka.
 
-`NOTE : marge kodów do receivera w progresie`
-
-`NOTE 2: prace nad implementacją RTOS wersji dla receivera trwają`
-
 #### Block Diagram
 
 <details>
@@ -190,7 +186,7 @@ Na pozniższym obrazku przedstawiony został schemat blokowy proceduralnego kodu
 
 - [link do pliku z kodem źródłowym Receiver'a](Software/receiver/eciverRadioTyrakaV2.ino)
 
-![block_diagram]()
+![block_diagram](pictures/Reciver_block_diagram.png)
 
 <div align="center"><font size="2"> <em>Figure 7. Receiver code diagram</em></font></div>
 
@@ -213,10 +209,11 @@ znacznie przyspiesza i ułatwia proces odzyskiwania rakiety.
 
 Na poniższych obrazkach (rys. 8 i 9) widać menu ustawień...
 
-|                                                                                        |                                                                                          |
-| :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
-|                      ![datasheet](pictures/mobileapp_setting.jpg)                      |                      ![datasheet](pictures/mobileapp_setting_2.jpg)                      |
-| <div align="center"><font size="2"><em>Figure 8. Mobile app setting </em></font></div> | <div align="center"><font size="2"><em>Figure 9. Mobile app setting 2 </em></font></div> |
+|                                              |                                                |
+| :------------------------------------------: | :--------------------------------------------: |
+| ![datasheet](pictures/mobileapp_setting.jpg) | ![datasheet](pictures/mobileapp_setting_2.jpg) |
+
+ <div align="center"><font size="2"><em>Figure 8. Mobile app setting </em></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <font size="2"><em>Figure 9. Mobile app setting 2 </em></font></div>
 
 Rysunek 10 przedstawia mapę satelitarną...
 
