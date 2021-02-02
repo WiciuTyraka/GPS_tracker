@@ -207,7 +207,10 @@ W celu wizualizacji lokalizacji szukanego obiektu stworzona została aplikacja m
 stacją odbiorczą i pobiera dane dotyczące aktualnej lokalizacji rakiety w czasie rzeczywistym. Dane wizualizowane są na mapie satelitarnej, co
 znacznie przyspiesza i ułatwia proces odzyskiwania rakiety.
 
-Na poniższych obrazkach (rys. 8 i 9) widać menu ustawień...
+W celu poprawnego skonfigurowania Receivera ze smartphonem należy w ustawieniach bluetooth telefonu wyszukać i połączyć się z stacją odbiorczą.
+Następnie w menu ustawień aplikacji (rys. 8) należy wybrać opcję **connect to paired device**.
+W nowym oknie (rys. 9) z sparowanymi urządzeniami, należy wybrać odpowiednie urządzenie i wybrać **select**.
+Dzięki temu przejdziemy do głównego okna (rys. 10) z widokiem mapy satelitarnej.
 
 |                                              |                                                |
 | :------------------------------------------: | :--------------------------------------------: |
@@ -215,7 +218,9 @@ Na poniższych obrazkach (rys. 8 i 9) widać menu ustawień...
 
  <div align="center"><font size="2"><em>Figure 8. Mobile app setting </em></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size="2"><em>Figure 9. Mobile app setting 2 </em></font></div>
 
-Rysunek 10 przedstawia mapę satelitarną...
+Czerwonym znacznikiem oznaczony jest lokalizowany obiket - lokalizacja trckera.
+Po kliknięciu na znacznik użytkownik zostanie przeniesiony do map google na których zaznaczona będzie najkrótsza trasa od użytkownika do poszukiwanego obiektu.
+w lewym górnym rogu wyświetlany jest czas od ostatniej otrzymanej wiadomośći.
 
 <div align="center"><img src="pictures/mobileapp_map.jpg" width="60%"></div>
 
